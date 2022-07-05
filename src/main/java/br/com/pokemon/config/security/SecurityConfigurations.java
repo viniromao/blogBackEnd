@@ -45,7 +45,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers(HttpMethod.GET, "/pokemon").permitAll()
+		.antMatchers(HttpMethod.GET, "/pokemon").hasRole("Treinador")
 		.antMatchers(HttpMethod.GET, "/pokemon/*").permitAll()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
 		.anyRequest().authenticated()
