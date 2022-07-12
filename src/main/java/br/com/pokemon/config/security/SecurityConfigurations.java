@@ -43,11 +43,9 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers(HttpMethod.GET, "/pokemon").hasRole("TREINADOR")
-		.antMatchers(HttpMethod.POST, "/pokemon").permitAll()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
-		.antMatchers(HttpMethod.GET, "/pokemon/usuario").permitAll()
 		.antMatchers(HttpMethod.POST, "/perfil").permitAll()
+		.antMatchers(HttpMethod.POST, "/pokemon2").hasRole("TREINADOR")
 		.anyRequest().authenticated()
 		.and().csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
