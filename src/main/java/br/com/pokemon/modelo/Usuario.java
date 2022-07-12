@@ -4,27 +4,31 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Usuario implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column
 	private String nome;
+	@Column
 	private String email;
+	@Column
 	private String senha;
-	
+	@Column
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Perfil> perfis = new ArrayList<>();
 
@@ -83,7 +87,14 @@ public class Usuario implements UserDetails {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+
+
 	}
+	public void setPerfil(Perfil perfil) {
+		this.perfis = new ArrayList<>();
+		this.perfis.add(perfil);
+	}
+
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

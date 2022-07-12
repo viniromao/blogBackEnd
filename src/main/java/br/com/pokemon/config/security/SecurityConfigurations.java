@@ -35,19 +35,19 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		return super.authenticationManager();
 	}
 	
-	//Configuracoes de autenticacao
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(autenticacaoService).passwordEncoder(new BCryptPasswordEncoder());
 	}
 	
-	//Configuracoes de autorizacao
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers(HttpMethod.GET, "/pokemon").hasRole("Treinador")
-		.antMatchers(HttpMethod.GET, "/pokemon/*").permitAll()
+		.antMatchers(HttpMethod.GET, "/pokemon").hasRole("TREINADOR")
+		.antMatchers(HttpMethod.POST, "/pokemon").permitAll()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
+		.antMatchers(HttpMethod.GET, "/pokemon/usuario").permitAll()
+		.antMatchers(HttpMethod.POST, "/perfil").permitAll()
 		.anyRequest().authenticated()
 		.and().csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -55,7 +55,6 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	}
 	
 	
-	//Configuracoes de recursos estaticos(js, css, imagens, etc.)
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 	}
