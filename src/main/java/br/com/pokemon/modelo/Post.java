@@ -1,8 +1,5 @@
 package br.com.pokemon.modelo;
 
-import br.com.pokemon.repository.BlogRespository;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,24 +8,21 @@ import java.time.LocalDate;
 @Entity
 public class Post {
 
-    @Autowired
-    BlogRespository blogRespository;
-
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
     private String author;
     private String Title;
-    private String substance;
+    private String content;
     private LocalDate date;
 
     public Post() {
     }
 
-    public Post(String author, String title, String substance) {
+    public Post(String author, String title, String content) {
         this.author = author;
         Title = title;
-        this.substance = substance;
+        this.content = content;
     }
 
     public String getAuthor() {
@@ -47,12 +41,12 @@ public class Post {
         Title = title;
     }
 
-    public String getSubstance() {
-        return substance;
+    public String getContent() {
+        return content;
     }
 
-    public void setSubstance(String substance) {
-        this.substance = substance;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public LocalDate getDate() {
