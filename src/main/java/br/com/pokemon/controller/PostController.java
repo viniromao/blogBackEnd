@@ -4,21 +4,25 @@ import br.com.pokemon.controller.dto.PostDTO;
 import br.com.pokemon.modelo.Post;
 import br.com.pokemon.repository.PostRespository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController("/post")
+@RestController
+@RequestMapping("/post")
 public class PostController {
 
     @Autowired
     PostRespository postRespository;
 
-    @RequestMapping("/post")
-    public List<PostDTO> lista() {
+    @PostMapping
+    public ResponseEntity<List<Post>> lista() {
         List<Post> topicos = postRespository.findAll();
-        return null;
+        return ResponseEntity.status(HttpStatus.OK).body(topicos);
     }
 
 }

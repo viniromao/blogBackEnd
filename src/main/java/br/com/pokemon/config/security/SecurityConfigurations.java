@@ -45,6 +45,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
 		.antMatchers(HttpMethod.POST, "/perfil").permitAll()
+		.antMatchers(HttpMethod.POST, "/post").permitAll()
 		.antMatchers(HttpMethod.POST, "/pokemon2").hasRole("TREINADOR")
 		.anyRequest().authenticated()
 		.and().csrf().disable()
