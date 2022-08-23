@@ -1,6 +1,6 @@
 package br.com.pokemon.controller.dto;
 
-import br.com.pokemon.modelo.Perfil;
+import br.com.pokemon.entity.Perfil;
 import lombok.Data;
 
 @Data

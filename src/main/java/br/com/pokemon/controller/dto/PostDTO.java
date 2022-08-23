@@ -1,11 +1,8 @@
 package br.com.pokemon.controller.dto;
 
-import br.com.pokemon.modelo.Post;
-
 import javax.persistence.Column;
 import javax.persistence.Id;
 import java.time.LocalDate;
-import java.util.List;
 
 public class PostDTO {
 

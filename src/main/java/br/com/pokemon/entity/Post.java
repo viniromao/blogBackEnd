@@ -1,9 +1,10 @@
-package br.com.pokemon.modelo;
+package br.com.pokemon.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 public class Post {
@@ -14,7 +15,7 @@ public class Post {
     private String author;
     private String Title;
     private String content;
-    private LocalDate date;
+    private LocalDate date = LocalDate.now();
 
     public Post() {
     }

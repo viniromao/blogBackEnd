@@ -2,7 +2,7 @@ package br.com.pokemon.config.security;
 
 import java.util.Optional;
 
-import br.com.pokemon.modelo.Usuario;
+import br.com.pokemon.entity.Usuario;
 import br.com.pokemon.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

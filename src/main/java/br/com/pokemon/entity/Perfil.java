@@ -1,4 +1,4 @@
-package br.com.pokemon.modelo;
+package br.com.pokemon.entity;
 
 import javax.persistence.*;
 

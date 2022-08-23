@@ -1,12 +1,8 @@
 package br.com.pokemon.controller.dto;
 
-import br.com.pokemon.modelo.Perfil;
-import br.com.pokemon.modelo.Usuario;
+import br.com.pokemon.entity.Perfil;
+import br.com.pokemon.entity.Usuario;
 import lombok.Data;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 @Data
 public class UsuarioDTO {

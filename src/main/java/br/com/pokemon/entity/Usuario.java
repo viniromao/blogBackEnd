@@ -1,4 +1,4 @@
-package br.com.pokemon.modelo;
+package br.com.pokemon.entity;
 
 import java.util.ArrayList;
 import java.util.Collection;
