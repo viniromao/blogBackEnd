@@ -14,6 +14,11 @@ public class PostServiceImpl implements PostService {
     PostRespository postRepository;
 
     @Override
+    public Post findOne(int id) {
+        return postRepository.findById(id).get();
+    }
+
+    @Override
     public void save(Post post) {
         postRepository.save(post);
     }
