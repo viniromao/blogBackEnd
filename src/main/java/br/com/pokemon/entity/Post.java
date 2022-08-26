@@ -1,4 +1,4 @@
-package br.com.pokemon.modelo;
+package br.com.pokemon.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,10 +11,15 @@ public class Post {
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
+    @Column
     private String author;
+    @Column
     private String Title;
+    @Column
     private String content;
-    private LocalDate date;
+    private LocalDate date = LocalDate.now();
+
+    //private List<String> comentaries;
 
     public Post() {
     }

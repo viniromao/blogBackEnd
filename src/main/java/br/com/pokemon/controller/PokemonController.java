@@ -2,8 +2,8 @@ package br.com.pokemon.controller;
 
 import br.com.pokemon.config.security.TokenService;
 import br.com.pokemon.controller.dto.UsuarioDTO;
-import br.com.pokemon.modelo.Perfil;
-import br.com.pokemon.modelo.Usuario;
+import br.com.pokemon.entity.Perfil;
+import br.com.pokemon.entity.Usuario;
 import br.com.pokemon.repository.PerfilRepository;
 import br.com.pokemon.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +39,7 @@ public class PokemonController {
         usuarioRepository.save(usuario);
         return ResponseEntity.ok().body("pokemon");
     }
+
     @GetMapping("/pokemon")
     public ResponseEntity<String> getPokemon() {
         return ResponseEntity.ok().body("pokemon");

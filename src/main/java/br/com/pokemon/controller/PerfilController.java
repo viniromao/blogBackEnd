@@ -14,7 +14,7 @@ public class PerfilController {
     private PerfilService perfilService;
 
     @PostMapping
-    private ResponseEntity<Void> savePerfil(@RequestBody PerfilDTO perfilDTO){
+    private ResponseEntity<Void> savePerfil(@RequestBody PerfilDTO perfilDTO) {
         perfilService.save(perfilDTO.toDomain());
         return ResponseEntity.ok().build();
     }
