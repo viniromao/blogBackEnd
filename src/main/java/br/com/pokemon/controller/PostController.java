@@ -19,9 +19,5 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-   // @PostMapping
-   // public ResponseEntity<List<Post>> lista() {
-   //       return ResponseEntity.status(HttpStatus.OK).body();
-  //  }
 
 }
