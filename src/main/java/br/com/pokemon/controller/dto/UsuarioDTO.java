@@ -12,12 +12,12 @@ public class UsuarioDTO {
     private CharSequence senha;
     private Perfil perfil;
 
-    public Usuario toDomain(){
-    return Usuario.builder()
-            .nome(this.getNome())
-            .email(this.getEmail())
-            .senha(this.getSenha().toString())
-            .build();
+    public Usuario toDomain() {
+        return Usuario.builder()
+                .nome(this.getNome())
+                .email(this.getEmail())
+                .senha(this.getSenha().toString())
+                .build();
 
     }
 }

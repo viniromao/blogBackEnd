@@ -8,7 +8,7 @@ public class PerfilDTO {
 
     private String nome;
 
-    public Perfil toDomain(){
+    public Perfil toDomain() {
         return Perfil.builder()
                 .nome(this.getNome())
                 .build();

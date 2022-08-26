@@ -39,6 +39,7 @@ public class PokemonController {
         usuarioRepository.save(usuario);
         return ResponseEntity.ok().body("pokemon");
     }
+
     @GetMapping("/pokemon")
     public ResponseEntity<String> getPokemon() {
         return ResponseEntity.ok().body("pokemon");

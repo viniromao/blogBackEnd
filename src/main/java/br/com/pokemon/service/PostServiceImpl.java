@@ -8,8 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-
-public class PostServiceImpl implements PostService{
+public class PostServiceImpl implements PostService {
 
     @Autowired
     PostRespository postRepository;
@@ -20,7 +19,8 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public void save(String Title, String author, int id) {}
+    public void save(String Title, String author, int id) {
+    }
 
     @Override
     public void delete(Post post) {

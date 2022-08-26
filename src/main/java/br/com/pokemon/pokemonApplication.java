@@ -10,8 +10,8 @@ import org.springframework.data.web.config.EnableSpringDataWebSupport;
 @EnableCaching
 public class pokemonApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(pokemonApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(pokemonApplication.class, args);
+    }
 
 }
