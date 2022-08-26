@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Post {
@@ -12,10 +13,15 @@ public class Post {
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
+    @Column
     private String author;
+    @Column
     private String Title;
+    @Column
     private String content;
     private LocalDate date = LocalDate.now();
+
+    //private List<String> comentaries;
 
     public Post() {
     }

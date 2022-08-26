@@ -5,19 +5,20 @@ import br.com.pokemon.repository.PostRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class PostService {
+public interface PostService {
 
-    @Autowired
-    PostRespository postRespository;
+    List<Post> findAll();
 
-    public void save(Post post){
-        postRespository.save(post);
-    }
+    void save(Post post);
 
-    public  void findAll(){postRespository.findAll();}
+    void delete(Post post);
 
-    public void delete(Post post){postRespository.delete(post);}
+    void save(String Title,
+              String author,
+              int id);
 
 
 }

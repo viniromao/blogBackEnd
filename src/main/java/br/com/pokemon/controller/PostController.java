@@ -19,23 +19,9 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    //@PostMapping
-    //public ResponseEntity<List<Post>> lista() {
-
-          //return ResponseEntity.status(HttpStatus.OK).body(topicos);
-    //}
-
-    @RequestMapping(value = "/post/test/{nome}", method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
-    public String returnPostTest(@PathVariable String nome){
-
-        Post post = new Post();
-        post.setAuthor("eduardo");
-        post.setTitle("Teste");
-
-        postService.save(post);
-
-        return "TESTE" + nome;
-    }
+   // @PostMapping
+   // public ResponseEntity<List<Post>> lista() {
+   //       return ResponseEntity.status(HttpStatus.OK).body();
+  //  }
 
 }
