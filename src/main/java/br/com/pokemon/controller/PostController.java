@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/post")
 public class PostController {
 
-
     @Autowired
     private PostService postService;
 
@@ -18,8 +17,5 @@ public class PostController {
         Post post = postService.findOne(id);
         postService.delete(post);
     }
-
-
-
 
 }

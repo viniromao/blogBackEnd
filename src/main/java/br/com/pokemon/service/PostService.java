@@ -8,7 +8,7 @@ public interface PostService {
 
     List<Post> findAll();
 
-    Post findOne(int id);
+    Post findOne(int getId);
 
     void save(Post post);
 
