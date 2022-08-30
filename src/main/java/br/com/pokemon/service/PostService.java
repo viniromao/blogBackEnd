@@ -1,22 +1,35 @@
 package br.com.pokemon.service;
 
 import br.com.pokemon.entity.Post;
+import br.com.pokemon.repository.PostRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+@Service
+public class PostService {
 
-public interface PostService {
+    @Autowired
+    PostRepository postRepository;
 
-    List<Post> findAll();
+    public Post save(Post post){
+        return postRepository.save(post);
+    }
 
-    Post findOne(int getId);
+    public  List<Post> findAll(){
+        return postRepository.findAll();
+    }
 
-    void save(Post post);
+    public void delete(Post post){
+        postRepository.delete(post);}
 
-    void delete(Post post);
+    public Post update(Post post){
+       return postRepository.save(post);
+    }
 
-    void save(String Title,
-              String author,
-              int id);
+    public Post findOne(Long id){
+        return postRepository.findById(id).get();
+    }
 
 
 }

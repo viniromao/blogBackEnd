@@ -1,29 +1,36 @@
 package br.com.pokemon.controller.dto;
 
 import br.com.pokemon.entity.Post;
+import br.com.pokemon.repository.PostRepository;
+import lombok.Builder;
 import lombok.Data;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Data
-public class PostDTO {
+@Builder
+public class PostPutDTO {
 
+    private Long id;
+
+    @NotNull @NotEmpty
+    private String title;
+
+    @NotNull @NotEmpty
+    private String content;
 
     private String author;
-    private String title;
-    private String content;
 
     public Post toDomain(){
         return Post.builder()
-                .content(this.getContent())
                 .title(this.getTitle())
+                .content(this.getContent())
+                .id(this.getId())
                 .author(this.getAuthor())
                 .date(LocalDate.now())
                 .build();
     }
 
 }
-
-
