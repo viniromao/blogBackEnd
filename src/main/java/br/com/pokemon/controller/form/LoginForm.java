@@ -1,8 +1,8 @@
-package br.com.pokemon.controller.dto;
+package br.com.pokemon.controller.form;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
-public class LoginFormDTO {
+public class LoginForm {
 
     private String email;
     private String senha;

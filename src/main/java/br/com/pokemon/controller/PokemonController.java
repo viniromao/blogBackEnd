@@ -30,7 +30,7 @@ public class PokemonController {
     private PerfilRepository perfilRepository;
 
     @PostMapping
-    public ResponseEntity<String> cadastrar(@RequestBody @Valid UsuarioDTO usuarioDTO) {
+    public ResponseEntity<String> autenticar(@RequestBody @Valid UsuarioDTO usuarioDTO) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         Perfil perfil = perfilRepository.findByNome(usuarioDTO.getNome());
         Usuario usuario = usuarioDTO.toDomain();

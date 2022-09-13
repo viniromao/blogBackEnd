@@ -2,7 +2,7 @@ package br.com.pokemon.controller;
 
 import br.com.pokemon.config.security.TokenService;
 import br.com.pokemon.controller.dto.TokenDto;
-import br.com.pokemon.controller.dto.LoginFormDTO;
+import br.com.pokemon.controller.form.LoginForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,7 +25,7 @@ public class AutenticacaoController {
     private TokenService tokenService;
 
     @PostMapping
-    public ResponseEntity<TokenDto> autenticar(@RequestBody LoginFormDTO form) {
+    public ResponseEntity<TokenDto> autenticar(@RequestBody LoginForm form) {
         UsernamePasswordAuthenticationToken dadosLogin = form.converter();
 
         try {
