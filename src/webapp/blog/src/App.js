@@ -1,9 +1,9 @@
-import Background from "./components/Background";
+import Form from "./components/Form/Form.js";
 
 function App() {
   return (
     <div className="App">
-      <Background/>
+      <Form/>
     </div>
   );
 }
