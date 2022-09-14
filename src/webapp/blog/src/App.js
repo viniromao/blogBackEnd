@@ -1,4 +1,4 @@
-import Form from "./components/Form/Form.js";
+import Form from "./components/Form";
 
 function App() {
   return (
