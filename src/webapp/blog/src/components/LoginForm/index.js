@@ -21,7 +21,7 @@ const LoginForm = () => {
           </div>
           <div className='form-inputs'>
             <label className='form-label'>Password</label>
-            <input
+            <input  
               className='form-input'
               type='password'
               name='password'

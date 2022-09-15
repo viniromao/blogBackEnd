@@ -4,8 +4,6 @@ import br.com.pokemon.entity.Post;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Data
 public class PostDTO {
