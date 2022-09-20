@@ -1,7 +1,6 @@
 package br.com.pokemon.controller.dto;
 
 import br.com.pokemon.entity.Post;
-import br.com.pokemon.repository.PostRepository;
 import lombok.Builder;
 import lombok.Data;
 

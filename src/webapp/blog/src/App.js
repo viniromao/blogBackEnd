@@ -1,9 +1,11 @@
-import Form from "./components/Form";
+import FormRegister from "./components/FormRegister";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   return (
     <div className="App">
-      <Form/>
+      <FormRegister />
+      <LoginForm/>
     </div>
   );
 }
