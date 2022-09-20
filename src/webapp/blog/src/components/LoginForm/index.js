@@ -2,13 +2,8 @@ import './Login.css'
 
 const LoginForm = () => {
     return (
-        <div className='form-content-right'>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+        <div className='form-content-right2'>
+        
             <body background="Dashboard Login.jpg">
                 <form className='form'>
                     <div className='form-inputs'>
