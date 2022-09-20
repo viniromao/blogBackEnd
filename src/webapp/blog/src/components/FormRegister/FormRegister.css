@@ -1,0 +1,92 @@
+
+body{
+
+    background-color: #050214
+}
+
+
+.form-content-right {
+    display: flex;
+    justify-content: end;
+    margin-top: 170px;
+    margin-right: 500px;
+}
+
+#tamanhojava{
+    width: 374px;
+    height: 518px;
+    margin-right: 200px;
+    margin-top: 30px;
+}
+
+
+.here{
+    
+    color: #2148C0;
+
+}
+
+.signup{
+
+    color: #fff;
+}
+
+.form-label{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    
+}
+
+#email{
+    position: absolute;
+    top: 481px;
+}
+
+
+.form-inputs {
+    color: #fff;
+    margin-bottom: 40px;
+    
+}
+
+::placeholder {
+    color: white;
+    opacity: 1;
+    font-size: 15px;
+  }
+  
+  :-ms-input-placeholder {
+    color: white;
+  }
+  
+  ::-ms-input-placeholder {
+    color: white;
+  }
+
+.form-input {
+    color: #fff;
+    background: none;
+    display: flex;
+    width: 100%;
+    padding: 12px 28px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #fff;
+    outline: none;
+}
+
+.form-input-btn {
+    width: 470.9px;
+    height: 55.23px;
+    left: 863.1px;
+    top: 741.77px;
+    background: #2148C0;
+    color: #fff;
+    box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.25);
+    border-radius: 32px;
+    cursor: pointer;
+}
+
+
