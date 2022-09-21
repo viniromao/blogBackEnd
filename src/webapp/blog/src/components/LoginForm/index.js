@@ -2,8 +2,7 @@ import './Login.css'
 
 const LoginForm = () => {
     return (
-        <div className='form-content-right2'>
-        
+        <div className='form-content-right'>
             <body background="Dashboard Login.jpg">
                 <form className='form'>
                     <div className='form-inputs'>

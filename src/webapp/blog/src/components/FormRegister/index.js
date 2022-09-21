@@ -24,9 +24,7 @@ const FormRegister = () => {
               name='username'
 
               placeholder= 'Enter your username'
-
-
-/>
+          />
           </div>
           <div className='form-inputs'>
             <label className='form-label'>Email</label>
