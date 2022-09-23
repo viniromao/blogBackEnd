@@ -1,8 +1,9 @@
-import './FormRegister.css'
+import { Link } from 'react-router-dom';
+import './RegisterForm.css'
 
 
 
-const FormRegister = () => {
+const RegisterForm = () => {
   return (
     <div className='form-content-right'>
       <img id='tamanhojava' src='/imgs/java.png' alt='javaimage' />
@@ -11,9 +12,8 @@ const FormRegister = () => {
             Sign Up
           </h1>
           <h2 className='signup'>
-            If you already have an account,<br />
-            You can  Login <a className ='here' href="">here !</a>
-
+            If you already have an account,
+          You can  Login <Link className='here' to='/login'>here !</Link> 
           </h2>
 
           <div className='form-inputs'>
@@ -24,15 +24,10 @@ const FormRegister = () => {
               name='username'
 
               placeholder= 'Enter your username'
-
-
-/>
+          />
           </div>
           <div className='form-inputs'>
             <label className='form-label'>Email</label>
-
-            <img id='email' src='/imgs/email.png' alt='email' />
-
             <input
               className='form-input'
               type='email'
@@ -59,9 +54,11 @@ const FormRegister = () => {
               placeholder='Confirm your password'
             />
           </div>
+          <Link to='/login'>
           <button className='form-input-btn' type='submit'>
             Sign up
           </button>
+          </Link>
       </form>
     </div>
   );
@@ -69,4 +66,4 @@ const FormRegister = () => {
 
 
 
-export default FormRegister
+export default RegisterForm
