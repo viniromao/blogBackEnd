@@ -1,11 +1,10 @@
 import './NavBar.css'
 import { Link } from 'react-router-dom'
-// import logo from 'src/imgs/logo.png';
+// import logo from '/imgs/logo.png';
 
 const NavBar = () => {
     return (
         <nav>
-            <h1>Questions</h1>
             <ul>
                 <li>
                     <Link to="/login">Login</Link>
@@ -15,7 +14,8 @@ const NavBar = () => {
                 </li>
                 <li>
                     <Link to="/">
-                        {/* <img src={logo} alt='Stacklogo' /> */}
+                           {/* <img src={logo} alt='Stacklogo' /> */}
+                        <h1>TechBlog</h1>
                     </Link>
                 </li>
             </ul>
