@@ -36,6 +36,11 @@ public class PostController {
         return postService.findOne(id);
     }
 
+    @GetMapping("/{title}")
+    public List<Post> findByRole(@RequestParam(value="title") String title){
+        return postService.findByTitle(title);
+    }
+
     @PostMapping
     public ResponseEntity<Post> inserirBlogPost(@RequestBody PostDTO postDTO){
         return ResponseEntity.ok(postService.save(postDTO.toDomain()));
@@ -46,5 +51,7 @@ public class PostController {
 
         return ResponseEntity.ok(postService.update(postPutDTO.toDomain()));
     }
+
+
 
 }

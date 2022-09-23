@@ -31,5 +31,7 @@ public class PostService {
         return postRepository.findById(id).get();
     }
 
-
+    public List<Post> findByTitle(String title){
+        return postRepository.findByTitle(title);
+    }
 }
