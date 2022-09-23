@@ -12,7 +12,7 @@ const RegisterForm = () => {
             Sign Up
           </h1>
           <h2 className='signup'>
-            If you already have an account,<br />
+            If you already have an account,
           You can  Login <Link className='here' to='/login'>here !</Link> 
           </h2>
 
@@ -28,9 +28,6 @@ const RegisterForm = () => {
           </div>
           <div className='form-inputs'>
             <label className='form-label'>Email</label>
-
-            <img id='email' src='/imgs/email.png' alt='email' />
-
             <input
               className='form-input'
               type='email'
