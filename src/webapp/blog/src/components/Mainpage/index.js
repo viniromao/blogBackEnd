@@ -7,6 +7,7 @@ const Mainpage = () => {
         <>
             <NavBar/>
             <div className='Leftpanel'>
+                
                 <div className='form-inputs_search'>
                     <img src='/imgs/grey_search_icon.png' />
                     <input
