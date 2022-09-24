@@ -2,10 +2,11 @@
 
 *.pack
 .eslintcache
-node_modules
+node_modules/
+.vscode/
 
 # dependencies
-/node_modules
+node_modules/
 /.pnp
 .pnp.js
 

@@ -4,7 +4,8 @@ HELP.md
 
 *.pack
 .eslintcache
-node_modules
+node_modules/
+.vscode/
 
 ### STS ###
 .apt_generated
