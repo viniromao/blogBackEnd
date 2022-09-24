@@ -1,13 +1,13 @@
 
 body{
-
+    
     background-color: #050214
 }
 
 
 .form-content-right {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-top: 170px;
     margin-right: 200px;
 }
@@ -46,19 +46,6 @@ body{
     
 }
 
-::placeholder {
-    color: white;
-    opacity: 1;
-    font-size: 15px;
-  }
-  
-  :-ms-input-placeholder {
-    color: white;
-  }
-  
-  ::-ms-input-placeholder {
-    color: white;
-  }
 
 .form-input {
     color: #fff;
@@ -86,4 +73,6 @@ body{
     cursor: pointer;
 }
 
-
+input:focus::placeholder {
+    color: transparent;
+  }

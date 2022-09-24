@@ -1,3 +1,54 @@
+
+
 .form_login {
-    background-image: url("/public/DashboardLogin.jpg");
+    text-align: end;
+    
 }
+
+.form-content-right_login{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("/public/DashboardLogin.jpg");
+    height: 100%;
+}
+
+#javalogin{
+    width: 100px;
+    margin-bottom: 33px;
+
+}
+
+
+.form-input_login {
+    background: none;
+    box-sizing: border-box;
+    height: 40px;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    padding-left: 40px;
+    border-radius: 4px;
+    outline: none;
+    margin-bottom: 20px; 
+    text-align:start;
+    width: 290px;
+    
+}
+
+
+.form-input-btn_login{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    height: 40px;
+    color: #2148C0;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#forgot{
+    color: #FFFFFF;
+    
+}
+
