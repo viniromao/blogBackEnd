@@ -1,31 +1,31 @@
+import { Link } from 'react-router-dom';
 import './Login.css'
 
 const LoginForm = () => {
     return (
         <div className='form-content-right_login'>
+            <img id='javalogin' src='/imgs/java_logo_white.png' alt='javalogin' />
                 <form className='form_login'>
                     <div className='form-inputs_login'>
-                        <label className='form-label_login'>Username</label>
                         <input
                             className='form-input_login'
                             type='text'
                             name='username'
-                            placeholder='Enter your username'
+                            placeholder='Username'
                         />
                     </div>
                     <div className='form-inputs_login'>
-                        <label className='form-label_login'>Password</label>
                         <input
                             className='form-input_login'
                             type='password'
                             name='password'
-                            placeholder='Enter your password'
+                            placeholder='Password'
                         />
                     </div>
                     <button className='form-input-btn_login' type='submit'>
                         Login
                     </button>
-                    <a href="">Forgot your password?</a>
+                    <Link id='forgot'>Forgot your password?</Link> 
                 </form>
         </div>
     );
