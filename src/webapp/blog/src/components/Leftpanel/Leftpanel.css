@@ -1,8 +1,34 @@
+.Leftpanel {
+    justify-content: left;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.Leftpanel h2 {
+    font-size: 20px;
+}
+
 .form-inputs_search img {
     width: 30px;
     height: 30px;
 }
 
-.form-inputs_search{
+.form-inputs_search {
     color: black;
+    font-size: 14px;
+}
+
+.questions {
+    width: 310px;
+    height: 41px;
+    font-size: 20px;
+    background-color: #080321;
+    border: none;
+}
+
+.listicon {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 50px;
 }

@@ -22,7 +22,6 @@ const RegisterForm = () => {
               className='form-input'
               type='text'
               name='username'
-
               placeholder= 'Enter your username'
           />
           </div>
