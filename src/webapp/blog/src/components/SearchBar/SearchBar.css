@@ -8,6 +8,7 @@
   border: none;
   width: 310px;
   height: 41px;
+  color: white;
 }
 
 .searchIconGrey {
@@ -55,3 +56,5 @@ a {
 #clearBtn {
   cursor: pointer;
 }
+
+

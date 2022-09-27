@@ -22,7 +22,7 @@ const NewPost = () => {
                         placeholder='Write your Post'
                     />
                 </div>
-                <button className='form-input-btn_login' type='submit'>
+                <button className='form-input-btn' type='submit'>
                     Publish
                 </button>
             </form>

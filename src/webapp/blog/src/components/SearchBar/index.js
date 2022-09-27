@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
 
-function SearchBar( placeholder, data ) {
+function SearchBar( {placeholder, data} ) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
-    console.log(data)
     const newFilter = data.filter((value) => {
       return value.title.toLowerCase().includes(searchWord.toLowerCase());
     });
 
+
     if (searchWord === "") {
       setFilteredData([]);
     } else {
-     // setFilteredData(newFilter);
+      setFilteredData(newFilter);
     }
   };
 
@@ -46,8 +46,8 @@ function SearchBar( placeholder, data ) {
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <a className="dataName" href={value.link} target="_blank">
-                <p>{value.title} </p>
+              <a className="dataName" href={value.link} target="_blank" key={key}>
+                <p>{value.title}</p>
               </a>
             );
           })}
