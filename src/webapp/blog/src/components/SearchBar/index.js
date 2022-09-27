@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
 
-function SearchBar({ placeholder, data }) {
+function SearchBar( {placeholder, data} ) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
@@ -12,6 +12,7 @@ function SearchBar({ placeholder, data }) {
       return value.title.toLowerCase().includes(searchWord.toLowerCase());
     });
 
+    
     if (searchWord === "") {
       setFilteredData([]);
     } else {
@@ -46,7 +47,7 @@ function SearchBar({ placeholder, data }) {
           {filteredData.slice(0, 15).map((value, key) => {
             return (
               <a className="dataName" href={value.link} target="_blank">
-                <p>{value.title} </p>
+                <p>{value.title}</p>
               </a>
             );
           })}
