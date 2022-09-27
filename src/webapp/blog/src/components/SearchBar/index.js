@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
 
-function SearchBar({ placeholder, data }) {
+function SearchBar( placeholder, data ) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
+    console.log(data)
     const newFilter = data.filter((value) => {
       return value.title.toLowerCase().includes(searchWord.toLowerCase());
     });
@@ -15,7 +16,7 @@ function SearchBar({ placeholder, data }) {
     if (searchWord === "") {
       setFilteredData([]);
     } else {
-      setFilteredData(newFilter);
+     // setFilteredData(newFilter);
     }
   };
 

@@ -10,12 +10,6 @@
   height: 41px;
 }
 
-::placeholder{
-  padding-left: 50px;
-  color: white;
-  font-size: 13px;
-}
-
 .searchIconGrey {
   width: 30px;
   height: 30px;
@@ -56,10 +50,6 @@ input:focus {
 
 a {
   text-decoration: none;
-}
-
-a:hover {
-  background-color: lightgrey;
 }
 
 #clearBtn {
