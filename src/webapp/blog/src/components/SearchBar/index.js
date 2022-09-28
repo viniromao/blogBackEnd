@@ -36,9 +36,9 @@ function SearchBar( {placeholder, data} ) {
         />
         <div className="searchIcon">
           {filteredData.length === 0 ? (
-            <img src="imgs/grey_search_icon.png" className="searchIconGrey"/>
+            <img src="imgs/grey_search_icon.png" className="searchIconGrey" />
           ) : (
-            <img src="imgs/close.png" id="clearBtn" onClick={clearInput} className="searchIconGrey"/>
+            <img src="imgs/close.png" id="clearBtn" onClick={clearInput} className="searchIconGrey" />
           )}
         </div>
       </div>

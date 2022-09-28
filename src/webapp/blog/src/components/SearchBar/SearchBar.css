@@ -8,6 +8,13 @@
   border: none;
   width: 310px;
   height: 41px;
+
+
+}
+
+.searchInputs input{
+  padding-left: 50px; 
+
   color: white;
 }
 
