@@ -1,0 +1,36 @@
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.login-register{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 120px;
+}
+
+.write-post-button {
+    padding: 12px 20px;
+    gap: 12px;
+    position: absolute;
+    width: 149px;
+    height: 38px;
+    left: 1086px;
+    top: 23px;
+
+    background: #F48023;
+    border-radius: 5px;
+}
+
+.logo-navbar {
+    height: 30px;
+    width: 34px;
+}
+
+li {
+    list-style-type: none;
+}
