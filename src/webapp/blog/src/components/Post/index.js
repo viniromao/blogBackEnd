@@ -1,24 +1,20 @@
 import './Post.css'
 
 const Post = ({ data }) => {
-
-    const getTitle = data.filter((value) => {
-        return value.title.toLowerCase();
-      });
-        console.log(getTitle)
-        return (
-            <div className='post'>
-                <div className='title'>
-
+    return (
+        <>
+            {data.map((value, index) => (
+                <div className='post' key={index}>
+                    <div className='title'>
+                        <h2>{value.title}</h2>
+                    </div>
+                    <div className='content'>
+                        {value.content}
+                    </div>
                 </div>
-                <div className='content'>
-
-                </div>
-                <div className=''>
-
-                </div>
-            </div>
-        )
-    }
+            ))}
+        </>
+    )
+}
 
 export default Post
