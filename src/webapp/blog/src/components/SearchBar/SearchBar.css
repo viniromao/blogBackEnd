@@ -10,8 +10,8 @@
   height: 41px;
 }
 
-::placeholder{
-  padding-left: 50px;
+.searchInputs input{
+  padding-left: 50px; 
   color: white;
   font-size: 13px;
 }

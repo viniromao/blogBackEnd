@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
 
-function SearchBar( {placeholder, data} ) {
+function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
@@ -12,7 +12,6 @@ function SearchBar( {placeholder, data} ) {
       return value.title.toLowerCase().includes(searchWord.toLowerCase());
     });
 
-    
     if (searchWord === "") {
       setFilteredData([]);
     } else {
@@ -36,9 +35,9 @@ function SearchBar( {placeholder, data} ) {
         />
         <div className="searchIcon">
           {filteredData.length === 0 ? (
-            <img src="imgs/grey_search_icon.png" className="searchIconGrey"/>
+            <img src="imgs/grey_search_icon.png" className="searchIconGrey" />
           ) : (
-            <img src="imgs/close.png" id="clearBtn" onClick={clearInput} className="searchIconGrey"/>
+            <img src="imgs/close.png" id="clearBtn" onClick={clearInput} className="searchIconGrey" />
           )}
         </div>
       </div>
