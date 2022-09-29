@@ -29,6 +29,7 @@ function SearchBar( {placeholder, data} ) {
     <div className="search">
       <div className="searchInputs">
         <input
+          id="searchinput"
           type="text"
           placeholder={placeholder}
           value={wordEntered}
