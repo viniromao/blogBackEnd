@@ -8,8 +8,10 @@ const Mainpage = () => {
     return (
         <>
             <NavBar/>
-            <Leftpanel/>
-            <Post data={data}/>
+            <div className='leftpanel_post'>
+                <Leftpanel/>
+                <Post className='post_mainpage' data={data}/>
+            </div>
         </>
     )
 }

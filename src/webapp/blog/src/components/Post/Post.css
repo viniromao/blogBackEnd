@@ -1,3 +1,13 @@
-li::marker{
+.post{
+    color: white;
+    margin-bottom: 40px;
+    border: 1px solid white;
+    padding: 40px;
+    margin-left: 60px;
     
+}
+
+.post_div{
+    margin-top: 60px;
+    margin-right: 20%;
 }

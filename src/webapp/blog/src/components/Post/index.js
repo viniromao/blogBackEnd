@@ -2,7 +2,7 @@ import './Post.css'
 
 const Post = ({ data }) => {
     return (
-        <>
+        <div className='post_div'>
             {data.map((value, index) => (
                 <div className='post' key={index}>
                     <div className='title'>
@@ -13,7 +13,7 @@ const Post = ({ data }) => {
                     </div>
                 </div>
             ))}
-        </>
+        </div>
     )
 }
 

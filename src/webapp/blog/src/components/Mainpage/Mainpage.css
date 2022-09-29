@@ -1,1 +1,12 @@
+.leftpanel_post{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+}
 
+.post_mainpage{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
