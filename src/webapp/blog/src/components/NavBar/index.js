@@ -15,16 +15,17 @@ const NavBar = () => {
                     <button className='write-post-button'>
                         Write a Post
                     </button>
-                <div>
-                    <ul>
-                        <li className='links_mainpage'>
+                    <ul className='ul_mainpage'>
+                        <li>
                             <Link to="/login">Login</Link>
                         </li>
-                        <li className='links_mainpage'>
+                        <li>
+                            <h5 id='h5color'>or</h5>
+                        </li>
+                        <li>
                             <Link to="/register">Register</Link>
                         </li>
                     </ul>
-            </div>        
         </header>
     )
 }

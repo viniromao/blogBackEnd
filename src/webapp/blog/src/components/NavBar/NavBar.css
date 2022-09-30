@@ -1,8 +1,8 @@
 .nav-bar{
     padding-bottom: 25px;
-    align-items: center;
     display: flex;
     border-bottom: 1px solid white;
+    align-items: center;
 }
 
 .techbloglink{
@@ -28,8 +28,11 @@
 }
 
 .write-post-button {
-    padding: 12px 20px;
-    gap: 12px;
+    top:22px;
+    left: 81%;
+    position: absolute;
+    color: white;
+    display: block;
     width: 149px;
     height: 38px;
     background: #F48023;
@@ -41,6 +44,21 @@ li {
     list-style-type: none;
 }
 
-.links_mainpage{
-    justify-content: end;
+.ul_mainpage{
+    padding-top: 20px;
+    padding-left: 0px;
+    margin-bottom: 0px;
+    display:flex;
+    width: 100%;
+    justify-content: right;
+}
+
+.ul_mainpage li{
+    margin-right: 30px;
+}
+
+#h5color{
+    padding-top: 2px;
+    font-size: 1rem;
+    color: white;
 }
