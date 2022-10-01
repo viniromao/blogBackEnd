@@ -43,14 +43,10 @@ class NewPost extends Component {
                 }}
               />
             </div>
-            <textarea
-              disabled
-              value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
-            />
           </div>
           <div className='button-position'>
             <button className='post-button'>Publish</button>
-            </div>
+          </div>
         </div>
       </>
     );

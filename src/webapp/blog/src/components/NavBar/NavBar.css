@@ -1,34 +1,35 @@
-.nav-bar{
+.nav-bar {
     padding-bottom: 25px;
     display: flex;
     border-bottom: 1px solid white;
     align-items: center;
 }
 
-.techbloglink{
+.techbloglink {
     margin-left: 30px;
-    display:inline-flex;
+    display: inline-flex;
     margin-top: 10px;
 }
+
 .logo-navbar {
     width: 40px;
     margin-top: 10px;
 }
 
-#h1techblog{
+#h1techblog {
     text-decoration: none;
     margin-top: 7px;
     font-size: 27px;
     color: white;
 }
-    
-.login-register{
+
+.login-register {
     display: inline-block;
     min-width: 120px;
 }
 
 .write-post-button {
-    top:22px;
+    top: 22px;
     left: 81%;
     position: absolute;
     color: white;
@@ -44,20 +45,20 @@ li {
     list-style-type: none;
 }
 
-.ul_mainpage{
+.ul_mainpage {
     padding-top: 20px;
     padding-left: 0px;
     margin-bottom: 0px;
-    display:flex;
+    display: flex;
     width: 100%;
     justify-content: right;
 }
 
-.ul_mainpage li{
+.ul_mainpage li {
     margin-right: 30px;
 }
 
-#h5color{
+#h5color {
     padding-top: 2px;
     font-size: 1rem;
     color: white;
