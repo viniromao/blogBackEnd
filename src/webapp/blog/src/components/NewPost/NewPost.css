@@ -1,0 +1,56 @@
+.editor{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    margin-left: 400px;
+    background-color: #080321;
+    color: #bababa;
+    border-radius: 10px;
+}
+
+.post-button{
+    gap: 12px;
+    width: 149px;
+    height: 38px;
+    background: #F48023;    
+    border-radius: 5px;
+    margin-top: 40px;
+}
+
+.title-area{
+    margin-left: 400px;
+    padding-bottom: 10px;
+    flex-direction: column;
+    display: flex ;
+    margin-top: 0px;
+}
+
+.title-area label{
+    color: #808080;
+    padding-bottom: 0%;
+    font-size: 20px;
+}
+
+.title-area input{
+    background-color: #080321;
+    border: none;
+    color: #FFFFFF;
+    width: 1000px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.editor-bar{
+    width: 1000px;
+}
+
+.post-area{
+
+}
+
+.button-position{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 9%;
+}

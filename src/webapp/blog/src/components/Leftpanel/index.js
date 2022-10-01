@@ -7,10 +7,7 @@ import BookData from "../SearchBar/Data.json"
 const Leftpanel = () => {
     return (
         <div className='Leftpanel'>
-
-
             <Searchbar placeholder="Search..." data={BookData}/>
-
             <h2 id='h2menu_mainpage'>MENU</h2>
             <img src='imgs/listicon.png' alt='listIcon' className='listicon' />
             <Link to='/'>

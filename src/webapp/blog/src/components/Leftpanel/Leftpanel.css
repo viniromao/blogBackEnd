@@ -2,10 +2,7 @@
     display: inline-block;
     margin-left: 15px;
     height: 100%;
-    
 }
-
-
 
 .form-inputs_search {
     color: black;
@@ -39,4 +36,5 @@
 
 .Leftpanel button {
     color: #F48023;
+    border-radius: 5px;
 }

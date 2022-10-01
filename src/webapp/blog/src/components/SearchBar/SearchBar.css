@@ -16,7 +16,7 @@
   border: none;
   width: 310px;
   height: 41px;
-  
+  border-radius: 5px;
 }
 
 .searchInputs input{
