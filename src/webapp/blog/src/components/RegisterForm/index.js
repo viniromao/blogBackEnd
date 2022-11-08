@@ -2,8 +2,16 @@ import { Link } from 'react-router-dom';
 import './RegisterForm.css'
 
 
-
 const RegisterForm = () => {
+
+function doRegister() {
+        axios.post('http://localhost:8080/register', {
+            username: username.username,
+            email: email.email,
+            senha: senha.senha
+        })
+    }
+
   return (
     <div className='form-content-right'>
       <img id='tamanhojava' src='/imgs/java.png' alt='javaimage' />

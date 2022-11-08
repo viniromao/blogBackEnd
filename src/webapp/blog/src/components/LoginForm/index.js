@@ -22,8 +22,8 @@ const LoginForm = () => {
         console.log(senha)
         console.log("doLogin")
         axios.post('http://localhost:8080/auth', {
-            email: email,
-            senha: senha
+            email: email.email,
+            senha: senha.senha
         })
             .then(function (response) {
                 console.log(response);

@@ -27,8 +27,8 @@ public class PostController {
     }
 
     @GetMapping
-    public List<Post> getAllPosts(){
-        return postService.findAll();
+    public String getAllPosts(){
+        return "deu certo";
     }
 
     @GetMapping("/{id}")
