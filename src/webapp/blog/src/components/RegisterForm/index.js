@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+
 import './RegisterForm.css'
+import axios from 'axios'
+
 
 
 const RegisterForm = () => {
+  const [email, setEmail] = useState(" ")
+  const [username, setUsername] = useState(" ")
+  const [senha, setSenha] = useState(" ")
+
 
 function doRegister() {
         axios.post('http://localhost:8080/register', {
