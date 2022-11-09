@@ -1,4 +1,4 @@
-package br.com.pokemon.config.security;
+package br.com.blog.config.security;
 
 import java.util.Date;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-import br.com.pokemon.entity.Usuario;
+import br.com.blog.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -21,12 +21,12 @@ public class TokenService {
 	private String secret;
 
 	public String gerarToken(Authentication authentication) {
-		Usuario logado = (Usuario) authentication.getPrincipal();
+		User logado = (User) authentication.getPrincipal();
 		Date hoje = new Date();
 		Date dataExpiracao = new Date(hoje.getTime() + Long.parseLong(expiration));
 		
 		return Jwts.builder()
-				.setIssuer("API Pokemon")
+				.setIssuer("API Blog")
 				.setSubject(logado.getId().toString())
 				.setIssuedAt(hoje)
 				.setExpiration(dataExpiracao)

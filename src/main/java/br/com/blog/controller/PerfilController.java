@@ -1,7 +1,7 @@
-package br.com.pokemon.controller;
+package br.com.blog.controller;
 
-import br.com.pokemon.config.security.PerfilService;
-import br.com.pokemon.controller.dto.PerfilDTO;
+import br.com.blog.config.security.PerfilService;
+import br.com.blog.controller.dto.PerfilDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

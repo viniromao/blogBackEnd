@@ -1,10 +1,10 @@
-package br.com.pokemon.controller;
+package br.com.blog.controller;
 
-import br.com.pokemon.controller.dto.DeletePostDTO;
-import br.com.pokemon.controller.dto.PostDTO;
-import br.com.pokemon.controller.dto.PostPutDTO;
-import br.com.pokemon.entity.Post;
-import br.com.pokemon.service.PostService;
+import br.com.blog.controller.dto.DeletePostDTO;
+import br.com.blog.controller.dto.PostDTO;
+import br.com.blog.controller.dto.PostPutDTO;
+import br.com.blog.entity.Post;
+import br.com.blog.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;

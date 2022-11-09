@@ -1,4 +1,4 @@
-package br.com.pokemon.entity;
+package br.com.blog.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

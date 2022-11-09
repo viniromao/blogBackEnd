@@ -1,4 +1,4 @@
-package br.com.pokemon.config.validacao;
+package br.com.blog.config.validacao;
 
 public class ErroDeFormularioDto {
 	

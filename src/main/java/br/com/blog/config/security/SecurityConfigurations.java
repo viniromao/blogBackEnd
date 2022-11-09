@@ -1,4 +1,4 @@
-package br.com.pokemon.config.security;
+package br.com.blog.config.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,10 +12,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import br.com.pokemon.repository.UsuarioRepository;
+import br.com.blog.repository.UserRepository;
 
 @EnableWebSecurity
 @Configuration
@@ -28,7 +27,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	private TokenService tokenService;
 	
 	@Autowired
-	private UsuarioRepository usuarioRepository;
+	private UserRepository userRepository;
 	
 	@Override
 	@Bean
@@ -46,18 +45,17 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		http.cors();
 		http.authorizeRequests()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
+		.antMatchers(HttpMethod.POST, "/user/register").permitAll()
 		.antMatchers(HttpMethod.POST, "/perfil").permitAll()
 		.antMatchers(HttpMethod.POST, "/*").permitAll()
 		.antMatchers(HttpMethod.DELETE, "/*").permitAll()
 		.antMatchers(HttpMethod.PUT, "/*").permitAll()
 		.antMatchers(HttpMethod.GET, "/**").permitAll()
-		.antMatchers(HttpMethod.POST, "/post/test/*").permitAll()
-		.antMatchers(HttpMethod.POST, "/pokemon2").hasRole("TREINADOR")
 		.anyRequest().authenticated()
 		.and().csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				.and().cors()
-		.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, usuarioRepository), UsernamePasswordAuthenticationFilter.class);
+		.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, userRepository), UsernamePasswordAuthenticationFilter.class);
 	}
 	
 	

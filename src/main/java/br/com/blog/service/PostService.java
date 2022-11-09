@@ -1,7 +1,7 @@
-package br.com.pokemon.service;
+package br.com.blog.service;
 
-import br.com.pokemon.entity.Post;
-import br.com.pokemon.repository.PostRepository;
+import br.com.blog.entity.Post;
+import br.com.blog.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

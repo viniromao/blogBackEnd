@@ -1,4 +1,4 @@
-package br.com.pokemon.entity;
+package br.com.blog.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +15,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Usuario implements UserDetails {
+public class User implements UserDetails {
 
     private static final long serialVersionUID = 1L;
 
@@ -48,7 +48,7 @@ public class Usuario implements UserDetails {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Usuario other = (Usuario) obj;
+        User other = (User) obj;
         if (id == null) {
             if (other.id != null)
                 return false;

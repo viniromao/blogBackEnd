@@ -1,9 +1,9 @@
-package br.com.pokemon.config.security;
+package br.com.blog.config.security;
 
 import java.util.Optional;
 
-import br.com.pokemon.entity.Usuario;
-import br.com.pokemon.repository.UsuarioRepository;
+import br.com.blog.entity.User;
+import br.com.blog.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,11 +14,11 @@ import org.springframework.stereotype.Service;
 public class AutenticacaoService implements UserDetailsService {
 	
 	@Autowired
-	private UsuarioRepository repository;
+	private UserRepository repository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<Usuario> usuario = repository.findByEmail(username);
+		Optional<User> usuario = repository.findByEmail(username);
 		if (usuario.isPresent()) {
 			return usuario.get();
 		}

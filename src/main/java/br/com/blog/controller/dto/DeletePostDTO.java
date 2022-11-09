@@ -1,4 +1,4 @@
-package br.com.pokemon.controller.dto;
+package br.com.blog.controller.dto;
 
 import lombok.Data;
 

@@ -2,25 +2,23 @@ import Leftpanel from '../Leftpanel';
 import NavBar from '../NavBar';
 import './NewPost.css'
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import React, { useState,Component } from "react";
 
-import React, { Component } from 'react';
+
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
 
-class NewPost extends Component {
-  state = {
-    editorState: EditorState.createEmpty(),
+const NewPost = () => {
+    const [editorState, setEditorState] = useState(" ")
+    const [username, setUsername] = useState(" ")
+    const [senha, setSenha] = useState(" ")
+
+  const onEditorStateChange = (editorState) => {
+    setEditorState({ editorState });
+    console.log(editorState)
   }
 
-  onEditorStateChange = (editorState) => {
-    this.setState({
-      editorState,
-    });
-  };
-
-  render() {
-    const { editorState } = this.state;
     return (
       <>
         <NavBar />
@@ -34,10 +32,8 @@ class NewPost extends Component {
             <div className='editor-bar'>
               <Editor
                 className='toolbar'
-                editorState={editorState}
                 wrapperClassName="demo-wrapper"
                 editorClassName="demo-editor"
-                onEditorStateChange={this.onEditorStateChange}
                 toolbar={{
                   options: ['inline', 'list', 'textAlign', 'history']
                 }}
@@ -49,7 +45,7 @@ class NewPost extends Component {
           </div>
         </div>
       </>
-    );
-  }
+    )
+
 }
 export default NewPost

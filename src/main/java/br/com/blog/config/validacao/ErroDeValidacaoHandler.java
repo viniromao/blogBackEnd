@@ -1,4 +1,4 @@
-package br.com.pokemon.config.validacao;
+package br.com.blog.config.validacao;
 
 import java.util.ArrayList;
 import java.util.List;

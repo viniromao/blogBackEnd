@@ -1,11 +1,11 @@
 package br.com.blog.controller.dto;
 
-public class TokenDto {
+public class TokenDTO {
 
     private String token;
     private String tipo;
 
-    public TokenDto(String token, String tipo) {
+    public TokenDTO(String token, String tipo) {
         this.token = token;
         this.tipo = tipo;
     }

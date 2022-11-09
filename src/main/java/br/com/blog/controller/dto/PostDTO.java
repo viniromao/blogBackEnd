@@ -1,6 +1,6 @@
-package br.com.pokemon.controller.dto;
+package br.com.blog.controller.dto;
 
-import br.com.pokemon.entity.Post;
+import br.com.blog.entity.Post;
 import lombok.Data;
 
 import java.time.LocalDate;

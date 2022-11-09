@@ -13,12 +13,24 @@ const RegisterForm = () => {
 
 
 function doRegister() {
-        axios.post('http://localhost:8080/register', {
-            username: username.username,
-            email: email.email,
-            senha: senha.senha
-        })
-    }
+    axios.post('http://localhost:8080/user/register', {
+        username: username.username,
+        email: email.email,
+        senha: senha.senha
+    })
+}
+
+    const handleInputSenha = event => {
+        setSenha({ senha: event.target.value });
+    };
+
+    const handleInputEmail = event => {
+        setEmail({ email: event.target.value });
+    };
+
+    const handleInputUsername = event => {
+        setUsername({ username: event.target.value });
+    };
 
   return (
     <div className='form-content-right'>
@@ -29,7 +41,7 @@ function doRegister() {
           </h1>
           <h2 className='signup'>
             If you already have an account,
-          You can  Login <Link className='here' to='/login'>here !</Link> 
+          You can  Login <Link className='here' to='/login'>here !</Link>
           </h2>
 
           <div className='form-inputs'>
@@ -38,6 +50,7 @@ function doRegister() {
               className='form-input'
               type='text'
               name='username'
+              onChange={handleInputUsername}
               placeholder= 'Enter your username'
           />
           </div>
@@ -47,6 +60,7 @@ function doRegister() {
               className='form-input'
               type='email'
               name='email'
+              onChange={handleInputEmail}
               placeholder='Enter your email'
             />
           </div>
@@ -56,12 +70,13 @@ function doRegister() {
               className='form-input'
               type='password'
               name='password'
+              onChange={handleInputSenha}
               placeholder='Enter your password'
             />
           </div>
           <div className='form-inputs'>
             <label className='form-label'>Confirm Password</label>
-            
+
             <input
               className='form-input'
               type='password'
@@ -70,7 +85,7 @@ function doRegister() {
             />
           </div>
           <Link to='/login'>
-          <button className='form-input-btn' type='submit'>
+          <button className='form-input-btn' type='submit' onClick={doRegister}>
             Sign up
           </button>
           </Link>

@@ -1,4 +1,4 @@
-package br.com.pokemon.config.security;
+package br.com.blog.config.security;
 
 import java.io.IOException;
 
@@ -11,15 +11,15 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import br.com.pokemon.entity.Usuario;
-import br.com.pokemon.repository.UsuarioRepository;
+import br.com.blog.entity.User;
+import br.com.blog.repository.UserRepository;
 
 public class AutenticacaoViaTokenFilter extends OncePerRequestFilter {
 	
 	private TokenService tokenService;
-	private UsuarioRepository repository;
+	private UserRepository repository;
 
-	public AutenticacaoViaTokenFilter(TokenService tokenService, UsuarioRepository repository) {
+	public AutenticacaoViaTokenFilter(TokenService tokenService, UserRepository repository) {
 		this.tokenService = tokenService;
 		this.repository = repository;
 	}
@@ -39,8 +39,8 @@ public class AutenticacaoViaTokenFilter extends OncePerRequestFilter {
 
 	private void autenticarCliente(String token) {
 		Long idUsuario = tokenService.getIdUsuario(token);
-		Usuario usuario = repository.findById(idUsuario).get();
-		UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
+		User user = repository.findById(idUsuario).get();
+		UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 	}
 

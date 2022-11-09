@@ -1,7 +1,7 @@
-package br.com.pokemon.config.security;
+package br.com.blog.config.security;
 
-import br.com.pokemon.entity.Perfil;
-import br.com.pokemon.repository.PerfilRepository;
+import br.com.blog.entity.Perfil;
+import br.com.blog.repository.PerfilRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

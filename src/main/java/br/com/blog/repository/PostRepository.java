@@ -1,6 +1,6 @@
-package br.com.pokemon.repository;
+package br.com.blog.repository;
 
-import br.com.pokemon.entity.Post;
+import br.com.blog.entity.Post;
 
 import java.util.List;
 
