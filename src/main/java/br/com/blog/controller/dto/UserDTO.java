@@ -1,7 +1,7 @@
-package br.com.pokemon.controller.dto;
+package br.com.blog.controller.dto;
 
-import br.com.pokemon.entity.Perfil;
-import br.com.pokemon.entity.Usuario;
+import br.com.blog.entity.Perfil;
+import br.com.blog.entity.User;
 import lombok.Data;
 
 @Data
@@ -12,8 +12,8 @@ public class UsuarioDTO {
     private CharSequence senha;
     private Perfil perfil;
 
-    public Usuario toDomain() {
-        return Usuario.builder()
+    public User toDomain() {
+        return User.builder()
                 .nome(this.getNome())
                 .email(this.getEmail())
                 .senha(this.getSenha().toString())
