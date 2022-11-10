@@ -1,15 +1,14 @@
-
 body{
     background-color: #050214
-    
 }
 
 
 .form-content-right {
     display: flex;
     justify-content: flex-end;
-    margin-top: 170px;
-    margin-right: 200px;
+    margin-top: 40px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 #tamanhojava{

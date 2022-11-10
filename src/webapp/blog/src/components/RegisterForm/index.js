@@ -5,7 +5,6 @@ import './RegisterForm.css'
 import axios from 'axios'
 
 
-
 const RegisterForm = () => {
   const [email, setEmail] = useState(" ")
   const [username, setUsername] = useState(" ")
