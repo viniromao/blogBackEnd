@@ -1,10 +1,13 @@
 package br.com.blog.config.security;
 
+import br.com.blog.utils.AuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -12,9 +15,18 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
+import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import br.com.blog.repository.UserRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.OrRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 
 @EnableWebSecurity
 @Configuration
@@ -28,40 +40,75 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	private UserRepository userRepository;
-	
+
+
+	private static final RequestMatcher PROTECTED_URLS = new OrRequestMatcher(
+			new AntPathRequestMatcher("/api/**")
+	);
+
+	AuthenticationProvider provider;
+
+	public SecurityConfigurations(final AuthenticationProvider authenticationProvider) {
+		super();
+		this.provider = authenticationProvider;
+	}
+
 	@Override
+	protected void configure(final AuthenticationManagerBuilder auth) {
+		auth.authenticationProvider(provider);
+	}
+
+	@Override
+	public void configure(final WebSecurity webSecurity) {
+		webSecurity.ignoring().antMatchers("/token/**");
+	}
+
+	@Override
+	public void configure(HttpSecurity http) throws Exception {
+		http.sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				.and()
+				.exceptionHandling()
+				.and()
+				.authenticationProvider(provider)
+				.addFilterBefore(authenticationFilter(), AnonymousAuthenticationFilter.class)
+				.authorizeRequests()
+				.antMatchers(HttpMethod.POST, "/auth").permitAll()
+				.antMatchers(HttpMethod.POST, "/user/register").permitAll()
+				.requestMatchers(PROTECTED_URLS)
+				.authenticated()
+				.and()
+				.csrf().disable()
+				.formLogin().disable()
+				.httpBasic().disable()
+				.logout().disable();
+	}
+
 	@Bean
-	protected AuthenticationManager authenticationManager() throws Exception {
-		return super.authenticationManager();
+	AuthenticationFilter authenticationFilter() throws Exception {
+		final AuthenticationFilter filter = new AuthenticationFilter(PROTECTED_URLS);
+		filter.setAuthenticationManager(authenticationManager());
+		//filter.setAuthenticationSuccessHandler(successHandler());
+		return filter;
 	}
-	
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(autenticacaoService).passwordEncoder(new BCryptPasswordEncoder());
-	}
-	
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.cors();
-		http.authorizeRequests()
-		.antMatchers(HttpMethod.POST, "/auth").permitAll()
-		.antMatchers(HttpMethod.POST, "/user/register").permitAll()
-		.antMatchers(HttpMethod.POST, "/perfil").permitAll()
-		.antMatchers(HttpMethod.POST, "/*").permitAll()
-		.antMatchers(HttpMethod.DELETE, "/*").permitAll()
-		.antMatchers(HttpMethod.PUT, "/*").permitAll()
-		.antMatchers(HttpMethod.GET, "/**").permitAll()
-		.anyRequest().authenticated()
-		.and().csrf().disable()
-		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-				.and().cors()
-		.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, userRepository), UsernamePasswordAuthenticationFilter.class);
-	}
-	
-	
-	@Override
-	public void configure(WebSecurity web) throws Exception {
+
+	@Bean
+	AuthenticationEntryPoint forbiddenEntryPoint() {
+		return new HttpStatusEntryPoint(HttpStatus.FORBIDDEN);
 	}
 
 
+//	@Bean
+//	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//		http.cors();
+//		http.authorizeRequests()
+//
+//				.anyRequest().authenticated()
+//				.and().csrf().disable()
+//				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//				.and().cors()
+//				.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, userRepository), UsernamePasswordAuthenticationFilter.class);
+//
+//		return http.build();
+//	}
 }

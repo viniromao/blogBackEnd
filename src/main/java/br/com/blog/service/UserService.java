@@ -5,9 +5,10 @@ import br.com.blog.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Service;
 
-import static br.com.blog.utils.UserValidationUtil.validate;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -25,4 +26,19 @@ public class UserService {
 
         log.info("usuário {} criado", user.getNome());
     }
+
+
+
+    public Optional<org.springframework.security.core.userdetails.User> findByToken(String token) {
+        Optional<User> user = userRepository.findByToken(token);
+        if(user.isPresent()){
+            User userPersisted = user.get();
+            org.springframework.security.core.userdetails.User userSecurity = new org.springframework.security.core.userdetails.User(userPersisted.getNome(), userPersisted.getSenha(), true, true, true, true,
+                    AuthorityUtils.createAuthorityList("USER"));
+            return Optional.of(userSecurity);
+        }
+        return  Optional.empty();
+    }
+
+
 }

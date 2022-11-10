@@ -24,12 +24,19 @@ public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column
     private String nome;
+
     @Column
     private String email;
+
     @Column
     private String senha;
+
+    @Column
+    private String token;
+
     @Column
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Perfil> perfis = new ArrayList<>();
