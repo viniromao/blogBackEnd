@@ -32,7 +32,7 @@ public class AuthController {
 
     @PostMapping
     @CrossOrigin
-    public ResponseEntity<TokenDTO> login(@RequestBody LoginFormDTO loginFormDTO) {
+    public ResponseEntity<String> login(@RequestBody LoginFormDTO loginFormDTO) {
         loginFormDTO.setSenha(DigestUtils.sha256Hex(loginFormDTO.getSenha()));
 
         Optional<User> user = userRepository.findByEmailAndSenha(loginFormDTO.getEmail(), loginFormDTO.getSenha());
@@ -48,7 +48,7 @@ public class AuthController {
         userPersisted.setToken(token);
         userRepository.save(userPersisted);
 
-        return ResponseEntity.ok(new TokenDTO(token, "Bearer"));
+        return ResponseEntity.ok(token);
     }
 
 }

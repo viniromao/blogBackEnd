@@ -26,6 +26,8 @@ const LoginForm = () => {
             senha: senha.senha
         })
             .then(function (response) {
+              localStorage.setItem('LoginToken', response.data);
+              localStorage.setItem('authenticated', true);
                 console.log(response);
             })
             .catch(function (error) {

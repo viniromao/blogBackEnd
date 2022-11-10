@@ -1,5 +1,6 @@
 package br.com.blog.utils;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -28,6 +29,10 @@ public class AuthenticationFilter extends AbstractAuthenticationProcessingFilter
 
         Optional<String> tokenParam = Optional.ofNullable(httpServletRequest.getHeader(AUTHORIZATION)); //Authorization: Bearer TOKEN
         String token= httpServletRequest.getHeader(AUTHORIZATION);
+
+        if (StringUtils.isBlank(token)) {
+            token = "";
+        }
         token= StringUtils.removeStart(token, "Bearer").trim();
         Authentication requestAuthentication = new UsernamePasswordAuthenticationToken(token, token);
         return getAuthenticationManager().authenticate(requestAuthentication);

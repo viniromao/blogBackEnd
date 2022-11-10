@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/post")
+@RequestMapping("/internal/post")
 public class PostController {
 
     @Autowired
@@ -27,8 +27,8 @@ public class PostController {
     }
 
     @GetMapping
-    public String getAllPosts(){
-        return "deu certo";
+    public List<Post> getAllPosts() {
+        return postService.findAll();
     }
 
     @GetMapping("/{id}")

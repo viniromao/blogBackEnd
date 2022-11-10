@@ -10,9 +10,9 @@ import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
 
 const NewPost = () => {
-    const [editorState, setEditorState] = useState(" ")
-    const [username, setUsername] = useState(" ")
-    const [senha, setSenha] = useState(" ")
+  const [editorState, setEditorState] = useState(" ")
+  const [username, setUsername] = useState(" ")
+  const [senha, setSenha] = useState(" ")
 
   const onEditorStateChange = (editorState) => {
     setEditorState({ editorState });

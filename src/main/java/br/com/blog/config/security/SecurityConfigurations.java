@@ -41,17 +41,9 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserRepository userRepository;
 
+	@Autowired
+	private AuthenticationProvider provider;
 
-	private static final RequestMatcher PROTECTED_URLS = new OrRequestMatcher(
-			new AntPathRequestMatcher("/api/**")
-	);
-
-	AuthenticationProvider provider;
-
-	public SecurityConfigurations(final AuthenticationProvider authenticationProvider) {
-		super();
-		this.provider = authenticationProvider;
-	}
 
 	@Override
 	protected void configure(final AuthenticationManagerBuilder auth) {
@@ -73,8 +65,6 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 				.authenticationProvider(provider)
 				.addFilterBefore(authenticationFilter(), AnonymousAuthenticationFilter.class)
 				.authorizeRequests()
-				.antMatchers(HttpMethod.POST, "/auth").permitAll()
-				.antMatchers(HttpMethod.POST, "/user/register").permitAll()
 				.requestMatchers(PROTECTED_URLS)
 				.authenticated()
 				.and()
@@ -91,6 +81,10 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		//filter.setAuthenticationSuccessHandler(successHandler());
 		return filter;
 	}
+
+	private static final RequestMatcher PROTECTED_URLS = new OrRequestMatcher(
+			new AntPathRequestMatcher("/internal/**")
+	);
 
 	@Bean
 	AuthenticationEntryPoint forbiddenEntryPoint() {
