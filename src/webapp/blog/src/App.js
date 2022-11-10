@@ -7,7 +7,6 @@ import {useState} from 'react'
 
 function App() {
   const [token, setToken] = useState();
-  localStorage.setItem('authenticated', false);
 
   return (
       <div className="App">

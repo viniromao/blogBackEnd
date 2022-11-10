@@ -19,33 +19,43 @@ const NewPost = () => {
     console.log(editorState)
   }
 
+  console.log(localStorage.getItem('authenticated'))
+
+  if (localStorage.getItem('authenticated') == true) {
     return (
-      <>
-        <NavBar />
-        <Leftpanel />
-        <div className='post-area'>
-          <div className='title-area'>
-            <label>Title</label>
-            <input className='title-text-area' placeholder='Insert Title...'></input>
-          </div>
-          <div className='editor'>
-            <div className='editor-bar'>
-              <Editor
-                className='toolbar'
-                wrapperClassName="demo-wrapper"
-                editorClassName="demo-editor"
-                toolbar={{
-                  options: ['inline', 'list', 'textAlign', 'history']
-                }}
-              />
+          <>
+            <NavBar />
+            <Leftpanel />
+            <div className='post-area'>
+              <div className='title-area'>
+                <label>Title</label>
+                <input className='title-text-area' placeholder='Insert Title...'></input>
+              </div>
+              <div className='editor'>
+                <div className='editor-bar'>
+                  <Editor
+                    className='toolbar'
+                    wrapperClassName="demo-wrapper"
+                    editorClassName="demo-editor"
+                    toolbar={{
+                      options: ['inline', 'list', 'textAlign', 'history']
+                    }}
+                  />
+                </div>
+              </div>
+              <div className='button-position'>
+                <button className='post-button'>Publish</button>
+              </div>
             </div>
-          </div>
-          <div className='button-position'>
-            <button className='post-button'>Publish</button>
-          </div>
-        </div>
-      </>
-    )
+          </>
+        )
+  }
+
+  return (
+    <h1> CHOLA</h1>
+  )
+
+
 
 }
 export default NewPost
