@@ -6,9 +6,17 @@ import Post from '../Post'
 import data from '../Post/data.json'
 
 const Mainpage = () => {
+
     return (
         <>
-            <NavBar />
+            {() => {
+                if (localStorage.getItem('authenticated') == "true") {
+                    return (<NavBarAuthenticated />)
+                } else {
+                    return (<NavBar />)
+                }
+            }
+            }
             <div className='leftpanel_post'>
                 <Leftpanel />
                 <Post className='post_mainpage' data={data} />

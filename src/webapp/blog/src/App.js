@@ -4,7 +4,6 @@ import NewPost from "./components/NewPost";
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Mainpage from "./components/Mainpage";
 
-
 function App() {
   return (
     <div className="App">

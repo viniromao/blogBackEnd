@@ -12,11 +12,6 @@ const NavBar = () => {
                     <h1 id='h1techblog'>TechBlog</h1>
                 </Link>
             </div>
-            <Link to="/newpost">
-                <button className='write-post-button' >
-                    Write a Post
-                </button>
-            </Link>
             <ul className='ul_mainpage'>
                 <li>
                     <Link to="/login">Login</Link>
