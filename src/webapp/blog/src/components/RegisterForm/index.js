@@ -40,7 +40,7 @@ function doRegister() {
           </h1>
           <h2 className='signup'>
             If you already have an account,
-          You can  Login <Link className='here' to='/login'>here !</Link>
+          You can  Login <Link className='here' to='/login' style={{ textDecoration: 'none' }}>here !</Link >
           </h2>
 
           <div className='form-inputs'>

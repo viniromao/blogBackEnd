@@ -2,7 +2,6 @@ body{
     background-color: #050214
 }
 
-
 .form-content-right {
     display: flex;
     justify-content: flex-end;
@@ -12,16 +11,14 @@ body{
 }
 
 #tamanhojava{
-    width: 374px;
-    height: 518px;
+    width: 418px;
+    height: 590px;
     margin-right: 200px;
-    margin-top: 30px;
+    margin-top: 25px;
 }
-
 
 .here{
     color: #2148C0;
-
 }
 
 .signup{
@@ -37,13 +34,11 @@ body{
     margin-top: 30px;
 }
 
-
 .form-inputs {
     color: #fff;
     margin-bottom: 40px;
     
 }
-
 
 .form-input {
     color: #fff;
