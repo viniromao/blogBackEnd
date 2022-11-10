@@ -21,7 +21,7 @@ const NewPost = () => {
 
   console.log(localStorage.getItem('authenticated'))
 
-  if (localStorage.getItem('authenticated') == true) {
+  if (localStorage.getItem('authenticated') == "true") {
     return (
           <>
             <NavBar />
