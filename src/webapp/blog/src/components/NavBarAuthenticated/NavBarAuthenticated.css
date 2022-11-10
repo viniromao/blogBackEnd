@@ -1,0 +1,52 @@
+.nav-bar {
+    padding-bottom: 25px;
+    display: flex;
+    border-bottom: 1px solid white;
+    align-items: center;
+}
+
+.techbloglink {
+    margin-left: 30px;
+    display: inline-flex;
+    margin-top: 10px;
+}
+
+.logo-navbar {
+    width: 40px;
+    margin-top: 10px;
+}
+
+#h1techblog {
+    text-decoration: none;
+    margin-top: 7px;
+    font-size: 27px;
+    color: white;
+}
+
+.login-register {
+    display: inline-block;
+    min-width: 120px;
+}
+
+.write-post-button {
+    top: 22px;
+    left: 81%;
+    position: absolute;
+    color: white;
+    display: block;
+    width: 149px;
+    height: 38px;
+    background: #F48023;
+    border-radius: 5px;
+}
+
+
+li {
+    list-style-type: none;
+}
+
+#h5color {
+    padding-top: 2px;
+    font-size: 1rem;
+    color: white;
+}
