@@ -26,9 +26,15 @@ body{
 }
 
 .signup{
+    font-size: 35px;
+    width: 65%;
+    color: #fff;
+}
+
+.login-here{
+    font-size: 20px;
     width: 60%;
     color: #fff;
-    
 }
 
 .form-label{
