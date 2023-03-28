@@ -21,7 +21,6 @@ public class BlogApplication implements WebApplicationInitializer {
         SpringApplication.run(BlogApplication.class, args);
     }
 
-
     @Override
     public void onStartup(ServletContext sc) {
 
