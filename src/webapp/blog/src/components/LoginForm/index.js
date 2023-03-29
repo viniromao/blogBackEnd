@@ -29,6 +29,7 @@ const LoginForm = () => {
             localStorage.setItem('LoginToken', response.data);
             localStorage.setItem('authenticated', true);
             console.log(response);
+                window.location.href = '/'; // Redireciona para a main page
         })
         .catch(function (error) {
             console.log(error);
@@ -43,8 +44,8 @@ const LoginForm = () => {
                     <input
                         className='form-input_login'
                         type='text'
-                        name='username'
-                        placeholder='Username'
+                        name='Email'
+                        placeholder='Email'
                         onChange={handleInput}
                     />
                 </div>
