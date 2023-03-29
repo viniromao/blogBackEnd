@@ -18,7 +18,6 @@ public class UserController {
     @Autowired
     private UserValidationUtil userValidationUtil;
 
-    @CrossOrigin
     @PostMapping("/register")
     public ResponseEntity<Void> register(@RequestBody UserDTO userDTO) {
 

@@ -25,15 +25,15 @@ const LoginForm = () => {
             email: email.email,
             senha: senha.senha
         })
-            .then(function (response) {
-              localStorage.setItem('LoginToken', response.data);
-              localStorage.setItem('authenticated', true);
-                console.log(response);
+        .then(function (response) {
+            localStorage.setItem('LoginToken', response.data);
+            localStorage.setItem('authenticated', true);
+            console.log(response);
                 window.location.href = '/'; // Redireciona para a main page
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     }
 
     return (
