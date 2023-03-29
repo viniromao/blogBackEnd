@@ -31,7 +31,6 @@ public class AuthController {
     private UserService userService;
 
     @PostMapping
-    @CrossOrigin
     public ResponseEntity<String> login(@RequestBody LoginFormDTO loginFormDTO) {
         loginFormDTO.setSenha(DigestUtils.sha256Hex(loginFormDTO.getSenha()));
 

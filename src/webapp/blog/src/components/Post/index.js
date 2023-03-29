@@ -10,7 +10,7 @@ const config = {
 function getAllPosts() {
     console.log(config.headers.Authorization)
 
-   return axios.get('localhost:8080/internal/post', config)
+   return axios.get('http://localhost:8080/internal/post', config)
   .then(function (response) {
     console.log(response);
   })
