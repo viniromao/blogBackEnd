@@ -8,10 +8,12 @@ import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
 
+const config = {
+  headers : {Authorization: localStorage.getItem("LoginToken")}
+}
+
 const NewPost = () => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
-  const [username, setUsername] = useState("");
-  const [senha, setSenha] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -21,7 +23,7 @@ const NewPost = () => {
   }
 
   function inserirPost() {
-    axios.post('http://localhost:8080/internal/post', { title, content })
+    axios.post('http://localhost:8080/internal/post', { title, content}, config)
       .then(response => {
         console.log(response);
       })
