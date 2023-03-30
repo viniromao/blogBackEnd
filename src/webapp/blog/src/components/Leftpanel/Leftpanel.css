@@ -1,6 +1,6 @@
 .Leftpanel {
     display: inline-block;
-    margin-left: 15px;
+    margin-left: 325px;
     height: 100%;
 }
 
@@ -15,7 +15,7 @@
     margin-top: 30px;
 }
 
-.questions {
+/* .questions {
     width: 310px;
     height: 41px;
     font-size: 20px;
@@ -24,7 +24,7 @@
     background-color: #080321;
     border: none;
     z-index: 3;
-}
+} */
 
 .listicon {
     position: absolute;

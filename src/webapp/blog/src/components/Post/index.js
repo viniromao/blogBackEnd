@@ -19,7 +19,7 @@ function getAllPosts() {
   })
 }
 
-getAllPosts()
+const posts = getAllPosts()
 
 const Post = ({ data }) => {
     return (
