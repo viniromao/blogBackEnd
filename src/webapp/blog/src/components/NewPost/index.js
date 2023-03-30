@@ -10,8 +10,6 @@ import draftToHtml from 'draftjs-to-html';
 
 const NewPost = () => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
-  const [username, setUsername] = useState("");
-  const [senha, setSenha] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
