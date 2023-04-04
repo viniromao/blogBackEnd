@@ -5,25 +5,32 @@ import axios from "axios";
 
 const LoginForm = () => {
 
-    const [email, setEmail] = useState(" ")
-
-    const [senha, setSenha] = useState(" ")
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleInput = event => {
-        setEmail({ email: event.target.value });
+        setEmail(event.target.value);
     };
 
     const handleInput2 = event => {
-        setSenha({ senha: event.target.value });
+        setSenha(event.target.value);
     };
 
     function doLogin() {
-        console.log(email)
-        console.log(senha)
-        console.log("doLogin")
+        if (!email) {
+            setErrorMessage("Por favor, insira um endereço de email válido");
+            return;
+        }
+
+        if (!senha) {
+            setErrorMessage("Por favor, insira uma senha válida");
+            return;
+        }
+
         axios.post('http://localhost:8080/auth', {
-            email: email.email,
-            senha: senha.senha
+            email: email,
+            senha: senha
         })
         .then(function (response) {
             localStorage.setItem('LoginToken', response.data);
@@ -32,6 +39,7 @@ const LoginForm = () => {
                 window.location.href = '/'; // Redireciona para a main page
         })
         .catch(function (error) {
+            setErrorMessage("Credenciais inválidas, tente novamente.");
             console.log(error);
         });
     }
@@ -40,6 +48,7 @@ const LoginForm = () => {
         <div className='form-content-right_login'>
             <img id='javalogin' src='/imgs/java_logo_white.png' alt='javalogin' />
             <div className='form_login'>
+                {errorMessage && <p className='errorMessage'>{errorMessage}</p>}
                 <div className='form-inputs_login'>
                     <input
                         className='form-input_login'
@@ -68,4 +77,4 @@ const LoginForm = () => {
     );
 };
 
-export default LoginForm
+export default LoginForm;

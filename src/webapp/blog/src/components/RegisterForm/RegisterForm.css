@@ -86,3 +86,7 @@ body{
 input:focus::placeholder {
     color: transparent;
   }
+
+.error-message{
+    color: red;
+}
