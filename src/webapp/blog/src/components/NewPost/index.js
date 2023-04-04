@@ -1,6 +1,6 @@
 import Leftpanel from '../Leftpanel';
 import NavBar from '../NavBar';
-import './NewPost.css'
+import './NewPost.css';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import React, { useState } from "react";
 import axios from "axios";
@@ -9,13 +9,14 @@ import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
 
 const config = {
-  headers : {Authorization: localStorage.getItem("LoginToken")}
+  headers: { Authorization: localStorage.getItem("LoginToken") }
 }
 
 const NewPost = () => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const onEditorStateChange = (editorState) => {
     setEditorState(editorState);
@@ -23,13 +24,34 @@ const NewPost = () => {
   }
 
   function inserirPost() {
-    axios.post('http://localhost:8080/internal/post', { title, content}, config)
+    axios.post('http://localhost:8080/internal/post', { title, content }, config)
       .then(response => {
         console.log(response);
+        window.location.href = '/'; // Redireciona para a main page
       })
-      .catch(error => {
-        console.error(error.response);
+      .catch(error => {   // Tratamento de erros
+        if (error.response.status === 400) {
+          setErrorMessage("Error: Bad Request. Please check the fields.");
+        } else if (error.response.status === 501) {
+          setErrorMessage("Error, try again.");
+        } else {
+          console.error(error.response);
+          setErrorMessage("Error, try again.");
+        }
       });
+  }
+
+  // Validação dos campos.
+  function validateInput() {
+    if (!title) {
+      setErrorMessage("Title field is empty.");
+      return false;
+    }
+    if (!content) {
+      setErrorMessage("Content field is empty.");
+      return false;
+    }
+    return true;
   }
 
   if (localStorage.getItem('authenticated') === "true") {
@@ -62,8 +84,9 @@ const NewPost = () => {
             </div>
           </div>
           <div className='button-position'>
-            <button className='post-button' onClick={inserirPost}>Publish</button>
+            <button className='post-button' onClick={() => validateInput() && inserirPost()}>Publish</button>
           </div>
+          {errorMessage && <p className='error-message-new-post'>{errorMessage}</p>}
         </div>
       </>
     );

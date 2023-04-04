@@ -16,6 +16,13 @@
     background: #F48023;
     border-radius: 5px;
     margin-top: 40px;
+    transition: all 0.3s ease;
+}
+
+.post-button:hover{
+    background-color: white;
+    color: #F48023;
+    cursor: pointer;
 }
 
 .title-area {
@@ -50,4 +57,12 @@
     display: flex;
     justify-content: flex-end;
     padding-right: 9%;
+}
+
+.error-message-new-post{
+    color: red;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 9%;
+    padding-top: 15px;
 }
