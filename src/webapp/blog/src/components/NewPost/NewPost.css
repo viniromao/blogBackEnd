@@ -13,6 +13,7 @@
     gap: 12px;
     width: 149px;
     height: 38px;
+    color: white;
     background: #F48023;
     border-radius: 5px;
     margin-top: 40px;
@@ -20,8 +21,8 @@
 }
 
 .post-button:hover{
-    background-color: white;
-    color: #F48023;
+    background-color: #C86900;
+    color: black;
     cursor: pointer;
 }
 
