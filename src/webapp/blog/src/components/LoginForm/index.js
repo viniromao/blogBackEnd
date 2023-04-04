@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import './Login.css'
 import axios from "axios";
 
 const LoginForm = () => {
 
     const [email, setEmail] = useState(" ")
-
     const [senha, setSenha] = useState(" ")
+    const [erro, setErro] = useState(null)
+    const buttonRef = useRef(null);
+
 
     const handleInput = event => {
         setEmail({ email: event.target.value });
@@ -18,9 +20,7 @@ const LoginForm = () => {
     };
 
     function doLogin() {
-        console.log(email)
-        console.log(senha)
-        console.log("doLogin")
+        buttonRef.current.classList.add("button-shake");
         axios.post('http://localhost:8080/auth', {
             email: email.email,
             senha: senha.senha
@@ -29,10 +29,16 @@ const LoginForm = () => {
             localStorage.setItem('LoginToken', response.data);
             localStorage.setItem('authenticated', true);
             console.log(response);
-                window.location.href = '/'; // Redireciona para a main page
+            window.location.href = '/'; // Redireciona para a main page
         })
         .catch(function (error) {
             console.log(error);
+            setErro("Email ou senha incorretos. Por favor, tente novamente.")
+            document.getElementById("form-input-btn_login").classList.add("button-shake");;
+            
+        setTimeout(function() {
+        document.getElementById("form-input-btn_login").classList.remove("button-shake");
+        }, 500); 
         });
     }
 
@@ -58,11 +64,11 @@ const LoginForm = () => {
                         onChange={handleInput2}
                     />
                 </div>
-                <button onClick={doLogin} className='form-input-btn_login'>
+                <   button ref={buttonRef} onClick={doLogin} className='form-input-btn_login'>
                     Login
                 </button>
+                {erro && <div className='form-error_login'>{erro}</div>}
                 <Link id='forgot'>Forgot your password?</Link>
-
             </div>
         </div>
     );

@@ -1,6 +1,7 @@
 package br.com.blog.service;
 
 import br.com.blog.entity.User;
+import br.com.blog.entity.exception.NotFoundException;
 import br.com.blog.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -38,6 +39,13 @@ public class UserService {
             return Optional.of(userSecurity);
         }
         return  Optional.empty();
+    }
+
+    public void removeToken(String tokenValue) {
+        User user = userRepository.findByToken(tokenValue)
+                .orElseThrow(() -> new NotFoundException("Token inválido"));
+        user.setToken(null);
+        userRepository.save(user);
     }
 
 

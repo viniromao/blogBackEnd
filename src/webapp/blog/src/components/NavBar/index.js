@@ -1,9 +1,28 @@
 import './NavBar.css'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
+
+
 
 const NavBar = () => {
     const isAuthenticated = localStorage.getItem("authenticated")
-
+    const logout = async () => {
+        try {
+          const response = await axios.post('http://localhost:8080/auth/logout', null, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          });
+          console.log(response); // apenas para debug
+          localStorage.removeItem('authenticated');
+          localStorage.removeItem('token');
+          window.location.reload(); // recarrega a página para atualizar a interface
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      
+      
     return (
         <header className='nav-bar'>
             <div className='techbloglink'>
@@ -17,12 +36,15 @@ const NavBar = () => {
 
             {/* Renderiza o botão "Write a Post" apenas se o usuário estiver autenticado */}
             {isAuthenticated && (
-                <Link to="/newpost">
-                    <button className='write-post-button' >
-                        Write a Post
-                    </button>
-                </Link>
-            )}
+    <div>
+        <Link to="/newpost">
+            <button className='write-post-button' >
+                Write a Post
+            </button>
+        </Link>
+        <button onClick={logout}>Logout</button>
+    </div>
+)}
 
             {/* Renderiza o botão de login e registro apenas se o usuário não estiver autenticado */}
             {!isAuthenticated && (

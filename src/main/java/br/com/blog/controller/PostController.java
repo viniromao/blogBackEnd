@@ -41,6 +41,8 @@ public class PostController {
         return postService.findByTitle(title);
     }
 
+
+
     @PostMapping
     public ResponseEntity<Post> inserirBlogPost(@RequestBody PostDTO postDTO){
         return ResponseEntity.ok(postService.save(postDTO.toDomain()));
