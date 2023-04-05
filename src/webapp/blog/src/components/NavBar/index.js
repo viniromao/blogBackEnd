@@ -30,12 +30,6 @@ const NavBar = () => {
                     <li>
                         <Link to="/login">Login</Link>
                     </li>
-                    <li>
-                        <h5 id='h5color'>or</h5>
-                    </li>
-                    <li>
-                        <Link to="/register">Register</Link>
-                    </li>
                 </ul>
             )}
         </header>
