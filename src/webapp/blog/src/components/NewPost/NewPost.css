@@ -13,9 +13,17 @@
     gap: 12px;
     width: 149px;
     height: 38px;
+    color: white;
     background: #F48023;
     border-radius: 5px;
     margin-top: 40px;
+    transition: all 0.3s ease;
+}
+
+.post-button:hover{
+    background-color: #C86900;
+    color: black;
+    cursor: pointer;
 }
 
 .title-area {
@@ -50,4 +58,12 @@
     display: flex;
     justify-content: flex-end;
     padding-right: 9%;
+}
+
+.error-message-new-post{
+    color: red;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 9%;
+    padding-top: 15px;
 }

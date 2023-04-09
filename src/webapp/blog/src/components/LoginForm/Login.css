@@ -46,10 +46,21 @@
     color: #2148C0;
     width: 100%;
     margin-top: 10px;
+    transition: all 0.3s ease;
 }
+
+.form-input-btn_login:hover {
+    background-color: #F48023;
+    color: white;
+    cursor: pointer;
+}
+
 
 #forgot{
     color: #FFFFFF;
     
 }
 
+.errorMessage{
+    color: red;
+}

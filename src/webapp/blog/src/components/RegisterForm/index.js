@@ -9,6 +9,9 @@ const RegisterForm = () => {
   const [username, setUsername] = useState("");
   const [senha, setSenha] = useState("");
   const [confirmSenha, setConfirmSenha] = useState("");
+  const [usernameError, setUsernameError] = useState("");
+  const [senhaError, setSenhaError] = useState("");
+  const [confirmSenhaError, setConfirmSenhaError] = useState("");
 
   const handleInputEmail = (event) => {
     setEmail(event.target.value);
@@ -27,17 +30,23 @@ const RegisterForm = () => {
   };
 
   const doRegister = () => {
-    if (username == "") {
-      alert("Digite o seu nome de usuario.");
-      return;
+    if (username === "") {
+      setUsernameError("Digite o seu nome de usuário.");
+      return; //Sai da função doRegister se houver erro.
+    } else {
+      setUsernameError(""); //Da continuidade ao código se não houver erro.
     }
     if (senha.length < 8) {
-      alert("A senha precisa ter pelo menos 8 caracteres.");
+      setSenhaError("A senha precisa ter pelo menos 8 caracteres.");
       return;
+    } else {
+      setSenhaError("");
     }
     if (senha !== confirmSenha) {
-      alert("A senha e a confirmação de senha precisam ser iguais.");
+      setConfirmSenhaError("A senha e a confirmação de senha precisam ser iguais.");
       return;
+    } else {
+      setConfirmSenhaError("");
     }
     axios.post('http://localhost:8080/user/register', {
       username: username,
@@ -70,6 +79,9 @@ const RegisterForm = () => {
             onChange={handleInputUsername}
             placeholder='Enter your username'
           />
+          {usernameError && <p className='error-message'>{usernameError}</p>} {/* verifica se a variável usernameError contém algum valor.
+           Se usernameError contém um valor, o elemento <p> com a classe error-message é renderizado,
+            exibindo o valor da variável usernameError. Caso contrário, nada é renderizado. */}
         </div>
         <div className='form-inputs'>
           <label className='form-label'>Email</label>
@@ -92,6 +104,7 @@ const RegisterForm = () => {
             onChange={handleInputSenha}
             placeholder='Enter your password'
           />
+          {senhaError && <p className='error-message'>{senhaError}</p>}
         </div>
         <div className='form-inputs'>
           <label className='form-label'>Confirm Password</label>
@@ -103,6 +116,7 @@ const RegisterForm = () => {
             onChange={handleInputConfirmSenha}
             placeholder='Confirm your password'
           />
+          {confirmSenhaError && <p className='error-message'>{confirmSenhaError}</p>}
         </div>
         <button className='form-input-btn' type='button' onClick={doRegister}>
           Sign up
